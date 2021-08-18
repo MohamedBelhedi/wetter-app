@@ -79,11 +79,11 @@ function App() {
           
 </div>
 <div className="sonnenaufgang">
-  <div className="sonneauf">Sonnenaufgang {new Date(wetter.sys.sunrise*1000).toLocaleTimeString('de')}</div>
+  <div className="sonneauf"> 🌞Sonnenaufgang {new Date(wetter.sys.sunrise*1000).toLocaleTimeString('de')}</div>
   {wetter.weather.description}
 </div>
 <div className="sonnenuntergang">
-  <div className="sonneunter">Sonnenuntergang {new Date(wetter.sys.sunset*1000).toLocaleTimeString('de')}</div>
+  <div className="sonneunter"> 🌅Sonnenuntergang {new Date(wetter.sys.sunset*1000).toLocaleTimeString('de')}</div>
   {wetter.weather.description}
 </div>
         </div>
