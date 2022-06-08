@@ -2,12 +2,17 @@ import React,{useState}from 'react';
 // setState immer im import
 import './App.css';
 import { getSunrise, getSunset } from 'sunrise-sunset-js';
+import DatenschutzModal from './Policy/DatenschutzModal';
+import CookieConsent from 'react-cookie-consent';
+
+
+
 const api={
   key:'8d3a4c2ff73ef6bcb19e913e835f26c7',
   base:'https://api.openweathermap.org/data/2.5/'
 
 }
-function App() {
+function App({mouseClick}) {
  
   const [query,setQuery]=useState('');
   const [wetter,setWetter]=useState({});
@@ -27,6 +32,7 @@ function App() {
     }
   }
 
+
   const Datum=(d)=>{
     let monate=["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","Novembe","Dezember"]
     let tage=["Sonntag","Montag","Dienstg","Mittwoch","Donnerstag","Freitag","Samstag"]
@@ -45,7 +51,7 @@ function App() {
 
 
   return (
-    <div className={(typeof wetter.main!="undefined")? ((wetter.main.temp < 16)? 'app deser':'app'):'app'}>
+    <div className={(typeof wetter.main!="undefined")? ((wetter.main.temp < 16)? 'app deser':'app'):'app'} onKeyPress={mouseClick}>
      <main>
      <div className="suchbox">
        <input 
@@ -104,6 +110,9 @@ function App() {
       
       ):('')}
      </main>
+ 
+
+ 
     </div>
   );
 }
