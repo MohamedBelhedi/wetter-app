@@ -28,7 +28,10 @@ function App({mouseClick}) {
         setSonnenUntergang(result);
         console.log(result)
       
-      });
+      })
+      
+   
+      
     }
   }
 
@@ -42,16 +45,21 @@ function App({mouseClick}) {
     let datum=d.getDate();
     let monat=monate[d.getMonth()];
     let jahr=d.getFullYear();
+    let hour=d.getHours();
+    let s = d.getSeconds();
+    let m = d.getMinutes();
+    setInterval(d,1000)
     
 
-    return`${tag} ${datum} ${monat} ${jahr}`
+    return`${tag} ${datum} ${monat} ${jahr} ${hour} ${m} ${s}`
+    
     
   
   }
 
 
   return (
-    <div className={(typeof wetter.main!="undefined")? ((wetter.main.temp < 16)? 'app deser':'app'):'app'} onKeyPress={mouseClick}>
+    <div className={(typeof wetter.main!="undefined")? ((wetter.main.temp < 16)? 'app deser':'app'):'app'} >
      <main>
      <div className="suchbox">
        <input 
@@ -64,8 +72,10 @@ function App({mouseClick}) {
        
        />
      </div>
+     {/* {(typeof wetter.main !="undefined")%(alert("Die Stadt existiert nicht"))}  diese UZeile löschen */}
     
         {(typeof wetter.main !="undefined") ?(
+          
        <div>
 
 <div className="location-box">
@@ -108,7 +118,13 @@ function App({mouseClick}) {
 </div>
        </div>
       
-      ):('')}
+      ):(typeof wetter.name!="undefined")||(
+        <>
+    <h1 className="wrongCity">Bitte Etwas suchen... oder Stadt existiert nicht</h1>
+  <div className="wrongCity">{Datum(new Date())}</div>
+</>
+    
+    )}
      </main>
  
 

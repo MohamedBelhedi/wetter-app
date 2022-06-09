@@ -1,5 +1,6 @@
-.App {
+.App,* {
   text-align: center;
+  flex-wrap: wrap;
 }
 
 .App-logo {
@@ -35,4 +36,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+.wrongCity{
+
+  text-align: center;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color:antiquewhite;
+
+
 }
