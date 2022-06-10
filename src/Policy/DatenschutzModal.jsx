@@ -24,6 +24,7 @@ class DatenschutzModal extends Component {
 
 <CookieConsent
        enableDeclineButton
+       onDecline={this.mouseClick}
        declineButtonText={"möchte ich nicht"}
   location="bottom"
   buttonText="Ok"

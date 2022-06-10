@@ -48,7 +48,7 @@ function App({mouseClick}) {
     let hour=d.getHours();
     let s = d.getSeconds();
     let m = d.getMinutes();
-    setInterval(d,1000)
+    
     
 
     return`${tag} ${datum} ${monat} ${jahr} ${hour} ${m} ${s}`
@@ -56,6 +56,7 @@ function App({mouseClick}) {
     
   
   }
+ 
 
 
   return (
@@ -80,7 +81,7 @@ function App({mouseClick}) {
 
 <div className="location-box">
         <div className="location">{wetter.name},{wetter.sys.country}
-          <div className="date">{Datum(new Date())}
+          <div className="date">{setInterval(()=>Datum(new Date()),1000)}
 
           </div>
         </div>
