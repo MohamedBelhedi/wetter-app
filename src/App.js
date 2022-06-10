@@ -1,9 +1,12 @@
 import React,{useState}from 'react';
 // setState immer im import
 import './App.css';
+
 import { getSunrise, getSunset } from 'sunrise-sunset-js';
 import DatenschutzModal from './Policy/DatenschutzModal';
 import CookieConsent from 'react-cookie-consent';
+import Datenschutz from './Policy/Datenschutz';
+import { Routes,BrowserRouter as Router,Route } from 'react-router-dom';
 
 
 
@@ -28,6 +31,12 @@ function App({mouseClick}) {
         setSonnenUntergang(result);
         console.log(result)
       
+      }).catch(err=>{
+        console.log("Fehler",err)
+
+
+
+
       })
       
    
@@ -48,14 +57,41 @@ function App({mouseClick}) {
     let hour=d.getHours();
     let s = d.getSeconds();
     let m = d.getMinutes();
-    
+    // setInterval(d,1000)
     
 
-    return`${tag} ${datum} ${monat} ${jahr} ${hour} ${m} ${s}`
-    
+    return`${tag} ${datum} ${monat} ${jahr} ${hour}:${m} Uhr`
+  
     
   
   }
+  const ondtsch=()=>{
+
+window.location.assign("/datenschutz")
+
+  }
+
+  const Zeit=()=>{
+
+   
+    const date=new Date()
+    const datumzeit=document.querySelector(".zeitDatum")
+
+    datumzeit.innerText=date
+
+    setInterval(Zeit,1000)
+
+  
+
+
+  
+
+
+
+  }
+
+
+
  
 
 
@@ -81,9 +117,14 @@ function App({mouseClick}) {
 
 <div className="location-box">
         <div className="location">{wetter.name},{wetter.sys.country}
-          <div className="date">{setInterval(()=>Datum(new Date()),1000)}
+          <div className="date">{Datum(new Date())}
+          <div className="zeitDatum"></div>
 
           </div>
+
+         
+
+          
         </div>
         </div>
       
@@ -122,15 +163,29 @@ function App({mouseClick}) {
       ):(typeof wetter.name!="undefined")||(
         <>
     <h1 className="wrongCity">Bitte Etwas suchen... oder Stadt existiert nicht</h1>
+ 
   <div className="wrongCity">{Datum(new Date())}</div>
 </>
     
     )}
      </main>
- 
 
- 
+     <Router>
+       <Routes>
+         <Route path={process.env.PUBLIC_URL +"/"} exact/>
+    <Route  path={"/Datenschutz"} element={<Datenschutz/>} exact />
+    {/* <Route  path={"/Impressum"} element={<Impressum/>}></Route>
+    <Route  path={"*"} element={<NotFound/>}></Route> */}
+
+       </Routes>
+    
+     </Router>
+
+<a onClick={ondtsch}>Datenschutz</a>
+
     </div>
+   
+
   );
 }
 

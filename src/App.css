@@ -45,3 +45,30 @@
 
 
 }
+a{
+
+  word-spacing: 10px;
+  margin: 10px;
+  font-size: 20px;
+  cursor: pointer;
+
+}
+
+footer,a{
+opacity: 0;
+
+}
+
+footer,a:hover{
+
+  opacity: 1;
+  transition-delay: 2000ms;
+  transition: 2000ms ease-in-out;
+cursor: pointer;
+
+}
+i{
+
+font-family: 'Courier New', Courier, monospace;
+
+}

@@ -36,6 +36,8 @@ class DatenschutzModal extends Component {
 >
   Diese Seite nutzt evtl. Cookies die dazu dienen um die Seite Ordnungsgemäß anzuzeigen, um
   die bedinung dieser Seite zu vereinfachen nähres kannst du, aus der Datenschutzerklärung entnehmen.
+
+  <a onClick></a>
  
 
 </CookieConsent>
