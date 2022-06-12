@@ -1,20 +1,32 @@
-import React from 'react'
+import React,{Component} from 'react'
 
-function Datenschutz() {
-    const clickHome=()=>{
+
+class Datenschutz extends Component{
+    
+    constructor(){
+        super()
+
+
+    }
+    
+    
+    
+    clickHome=()=>{
 
         window.location.assign("/")
 
 
 
     }
-    const jahr=()=>{
+     jahr=()=>{
     const Datum1=new Date()
     const Jahr=Datum1.getFullYear();
 
     return `${Jahr}`
 
     }
+
+    render(){
   return (
     <div>
         
@@ -27,17 +39,18 @@ function Datenschutz() {
 
 <footer style={{justifyContent:"space-between",margin:"10px"}}>
 
-<a onClick={clickHome}>Home</a>
+<a onClick={this.clickHome}>Home</a>
 <a>Impressum</a>
 
 
-<i>Momo ReactDev {jahr(new Date())}</i>
+<i>Momo ReactDev {this.jahr(new Date())}</i>
 
 
 </footer>
 
     </div>
   )
+}
 }
 
 export default Datenschutz

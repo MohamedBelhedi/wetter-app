@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CookieConsent from 'react-cookie-consent';
-import Swal from 'sweetalert2';
+
 import DatenschutzModal from './Policy/DatenschutzModal';
 
 
@@ -42,7 +41,7 @@ import DatenschutzModal from './Policy/DatenschutzModal';
 ReactDOM.render(
   <React.StrictMode>
     <App /*onChange={alarm()}*/ />
-  {(<DatenschutzModal/>)}
+  <DatenschutzModal/>
 
 
   </React.StrictMode>,
